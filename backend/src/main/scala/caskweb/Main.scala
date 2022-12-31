@@ -1,10 +1,6 @@
 package caskweb
 
-case class MinimalRoutes()(implicit cc: castor.Context, log: cask.Logger) extends cask.Routes {
-  @cask.get("/hello")
-  def hello() =
-    "Hello World!"
-
+case class WebRoute()(implicit cc: castor.Context, log: cask.Logger) extends cask.Routes {
   @cask.get("/")
   def index() =
     cask.StaticResource(
@@ -24,9 +20,10 @@ case class MinimalRoutes()(implicit cc: castor.Context, log: cask.Logger) extend
 
 object Main extends cask.Main {
   println("START server")
+
   override def host: String = "0.0.0.0"
 
   override def port: Int = 8080
 
-  val allRoutes = Seq(MinimalRoutes())
+  val allRoutes = Seq(WebRoute(), HelloRoute())
 }
