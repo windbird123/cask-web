@@ -33,7 +33,7 @@ $ npm install
   ```
   
 아래 주소로 frontend 확인 가능함 
-http://localhost:3000 
+http://localhost:5173
 
 
 #### backend
